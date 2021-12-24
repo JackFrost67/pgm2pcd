@@ -1,5 +1,3 @@
-#! /usr/bin/env python3.6
-
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
@@ -44,10 +42,8 @@ if __name__ == '__main__':
 	filename = args.map_name
 	with open(filename, "rb") as file:
 		yaml = yaml.load(file, Loader=yaml.FullLoader)
-		print(yaml.get("image"))
 
 	with open("map/" + yaml.get("image"), "rb") as file:
 		pgmf = plt.imread(file)
 	
-
 	map2laserScan(pgmf, yaml.get("resolution"), yaml.get("origin"))
